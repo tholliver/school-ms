@@ -3,4 +3,11 @@ import postgres from "postgres";
 import * as schema from './schema'
 
 const connectionString = process.env.DATABASE_URL
-const queryClient = postgres()
+
+if (!connectionString) {
+    throw new Error('Database URL not defined');
+}
+const queryClient = postgres(connectionString)
+const dbConn = drizzle(queryClient, { schema });
+
+export default dbConn;
