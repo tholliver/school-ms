@@ -27,10 +27,6 @@ export default function App({ Component, pageProps }: AppProps) {
   ]
   return (
     <QueryClientProvider client={queryClient}>
-      <Head>
-        <title>My page title</title>
-        <meta property="og:title" content="My page" key="title" />
-      </Head>
       <Navbar />
       <section className="flex min-h-screen">
         <Sidebar menulist={allmenu} />
